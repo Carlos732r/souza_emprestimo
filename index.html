@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO E META TAGS -->
+    <title>Souza Empréstimos | Crédito Rápido em Araras e Todo Brasil</title>
+    <meta name="description" content="Simule seu empréstimo na Souza Empréstimos. Antecipação de FGTS, Crédito na Conta de Luz e Pessoal. Atendemos negativados. Sede em Araras-SP, atendimento nacional.">
+    <meta name="keywords" content="empréstimo araras, crédito pessoal, antecipação fgts, empréstimo na conta de luz, souza empréstimos, dinheiro rápido, negativado">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Souza Empréstimos">
+    <meta property="og:title" content="Souza Empréstimos - Dinheiro na mão sem burocracia">
+    <meta property="og:description" content="Crédito rápido e seguro. Antecipe seu FGTS ou faça um empréstimo na conta de luz agora mesmo.">
+    <meta property="og:image" content="imagens/logo.png">
+    
+    <!-- FONTS & ICONS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIÁVEIS E RESET --- */
+        :root {
+            /* Cores: Azul Petróleo Profundo e Dourado */
+            --primary-color: #00334e; 
+            --secondary-color: #d49a00; 
+            --dark-bg: #111111;
+            --light-bg: #f4f6f9;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #BEBEBE;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 80px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        nav ul { display: flex; gap: 30px; }
+
+        nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--secondary-color); }
+
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--dark-bg);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            color: var(--white);
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .highlight-box {
+            background-color: var(--primary-color);
+            padding: 0 10px;
+            display: inline-block;
+        }
+
+        .hero-text p {
+            color: #cccccc;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        .hero-list { list-style: none; }
+
+        .hero-list li {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-list li::before {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-right: 15px;
+        }
+
+        .hero-image { text-align: center; }
+
+        /* --- SERVIÇOS (Cards) --- */
+        .services {
+            padding: 80px 0 40px 0; /* Reduzi o padding inferior pois virá a promo section */
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .section-title {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 30px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- SEÇÃO DE OFERTAS (IMAGENS PROMOCIONAIS) --- */
+        .promo-section {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 colunas no Desktop */
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .promo-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+
+        .promo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .promo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* --- POR QUE ESCOLHER --- */
+        .features {
+            background-color: var(--dark-bg);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .features-header { margin-bottom: 50px; text-align: center;}
+
+        .features-header h2 { font-size: 2.5rem; font-weight: 700; }
+        
+        .features-header span { color: var(--secondary-color); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 3rem;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .feature-item:hover i {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        /* --- FORMULÁRIO --- */
+        .simulation-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-btn:hover { background-color: #002233; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0a0a0a;
+            color: #777;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-info h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover { color: var(--secondary-color); }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            /* Ajuste Carrossel de Imagens no Celular */
+            .promo-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                padding-bottom: 20px;
+            }
+            .promo-item {
+                min-width: 85%;
+                scroll-snap-align: center;
+            }
+            .promo-grid::-webkit-scrollbar { height: 6px; }
+            .promo-grid::-webkit-scrollbar-thumb { background-color: var(--secondary-color); border-radius: 10px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-list { display: none; }
+            .hero-text h1 { font-size: 2rem; }
+            
+            nav ul { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="imagens/logo.png" alt="Logo Souza Empréstimos" style="background: transparent; padding: 0; border-radius: 0;"></a>
+            </div>
+            <nav>
+                <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Produtos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>
+                    <span class="highlight-box">Crédito rápido</span> e seguro<br>
+                    para você resolver<br>
+                    sua vida financeira
+                </h1>
+                <p>Dinheiro na mão sem burocracia. Atendemos negativados, antecipamos FGTS e crédito na conta de energia.</p>
+                <a href="#contato" class="cta-button">
+                    Fazer Simulação Agora <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="hero-image">
+                <ul class="hero-list" style="text-align: left; display: inline-block;">
+                    <li>ANTECIPAÇÃO FGTS</li>
+                    <li>CRÉDITO NA CONTA DE LUZ</li>
+                    <li>EMPRÉSTIMO NO BOLETO</li>
+                    <li>PARA NEGATIVADOS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-title">Nossos Serviços</div>
+            
+            <div class="services-grid">
+                <!-- Card FGTS -->
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-piggy-bank"></i></div>
+                    <h3>Antecipação FGTS</h3>
+                    <p>Antecipe seu saque-aniversário sem comprometer sua renda mensal. Dinheiro na conta em minutos.</p>
+                    <a href="https://wa.me/5519981642292?text=Quero%20simular%20FGTS" class="btn-outline">Simular</a>
+                </div>
+
+                <!-- Card Energia -->
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                    <h3>Crédito na Conta de Luz</h3>
+                    <p>Débito direto na fatura de energia. Rápido, fácil e sem consulta restritiva (sujeito a análise).</p>
+                    <a href="https://wa.me/5519981642292?text=Quero%20simular%20Conta%20Luz" class="btn-outline">Simular</a>
+                </div>
+
+                <!-- Card Pessoal -->
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Crédito Pessoal</h3>
+                    <p>Empréstimo pessoal com as melhores taxas do mercado. Ideal para organizar suas finanças.</p>
+                    <a href="https://wa.me/5519981642292?text=Quero%20simular%20Pessoal" class="btn-outline">Simular</a>
+                </div>
+                
+                 <!-- Card Veículo -->
+                 <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-car"></i></div>
+                    <h3>Veículo como Garantia</h3>
+                    <p>Use seu carro quitado para obter valores maiores e juros menores. Continue usando seu veículo.</p>
+                    <a href="https://wa.me/5519981642292?text=Quero%20simular%20com%20Veiculo" class="btn-outline">Simular</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PROMOCIONAL (IMAGENS) -->
+    <section id="ofertas" class="promo-section">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-title" style="margin-bottom: 30px;">Oportunidades da Semana</div>
+                <p style="margin-bottom: 40px; color: #666;">
+                    Confira nossas condições especiais. Deslize para ver mais.
+                </p>
+            </div>
+
+            <div class="promo-grid">
+                <!-- Imagem 1: Empréstimo Geral -->
+                <div class="promo-item">
+                    <img src="imagens/emprestimo.jpg" alt="Empréstimo Facilitado até 3300">
+                </div>
+
+                <!-- Imagem 2: Conta de Energia (Relógio) -->
+                <div class="promo-item">
+                    <img src="imagens/emprestimoEnergia.jpeg" alt="Dinheiro na Conta de Energia">
+                </div>
+
+                <!-- Imagem 3: Empréstimo no Boleto -->
+                <div class="promo-item">
+                    <img src="imagens/emprestimoBoleto.jpeg" alt="Empréstimo no Boleto Bancário">
+                </div>
+
+                <!-- Imagem 4: Conta de Energia (Lâmpada) -->
+                <div class="promo-item">
+                    <img src="imagens/ContaEnergia.jpg" alt="Crédito na Conta de Luz">
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contato" class="cta-button">Aproveitar Ofertas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILARES / BENEFÍCIOS -->
+    <section class="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Por que escolher a <br><span>Souza Empréstimos?</span></h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Confiança</h3>
+                    <p>Empresa séria focada em realizar seus sonhos com transparência.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Araras e Brasil</h3>
+                    <p>Sede em Araras/SP e atendimento digital para todo o país.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>100% Digital</h3>
+                    <p>Contrate pelo WhatsApp sem sair de casa. Rápido e prático.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO -->
+    <section id="contato" class="simulation-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Simulação Gratuita</h2>
+                <p>Preencha os dados abaixo e te chamaremos no WhatsApp.</p>
+                
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(DD) 99999-9999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servico">Tipo de Crédito</label>
+                        <select id="servico" name="servico">
+                            <option value="FGTS">Antecipação de FGTS</option>
+                            <option value="ContaLuz">Empréstimo na Conta de Luz</option>
+                            <option value="Boleto">Empréstimo no Boleto</option>
+                            <option value="Pessoal">Crédito Pessoal</option>
+                            <option value="Negativado">Sou Negativado</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="form-btn">SOLICITAR SIMULAÇÃO AGORA</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="imagens/logo.png" alt="Souza Empréstimos" style="max-height: 60px; background: transparent; padding: 0; border-radius: 0; margin-bottom: 15px;">
+                    <h4>Souza Empréstimos</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Primaveras, 146 - Araras/SP</p>
+                    <p><i class="fab fa-whatsapp"></i> (19) 98164-2292</p>
+                    <p>Atendimento para todo o Brasil.</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/Souza_emprestimos32" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5519981642292" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Souza Empréstimos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/5519981642292" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Máscara para telefone
+        const telInput = document.getElementById('telefone');
+        telInput.addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        // Envio para WhatsApp
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;
+            
+            const texto = `Olá, vim pelo site!%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Interesse:* ${servico}%0A Gostaria de fazer uma simulação.`;
+            
+            window.open(`https://wa.me/5519981642292?text=${texto}`, '_blank');
+        });
+    </script>
+</body>
+</html>
