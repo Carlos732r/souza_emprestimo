@@ -793,6 +793,11 @@ footer {
         bottom: 15px;
         right: 15px;
     }
+
+    /* POSICIONAR IMAGEM DE FUNDO DA HERO NO MOBILE */
+    .hero {
+        background-position: left center !important;
+    }
 }
 
 @media (max-width: 480px) {
