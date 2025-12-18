@@ -609,6 +609,17 @@ footer {
     .social-links {
         justify-content: center;
     }
+
+    .section-title {
+        display: block;
+        width: 100%;
+        text-align: center !important;
+        margin: 0 auto 30px auto !important;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -674,8 +685,23 @@ footer {
         text-align: center;
     }
 
+    /* CARDS DE SERVIÇO - UM EMBAIXO DO OUTRO NO MOBILE */
     .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
         margin-top: 30px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service-card {
+        padding: 30px 20px;
+        width: 100%;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
     }
 
     /* FEATURES - Título centralizado */
@@ -687,6 +713,14 @@ footer {
     .features-header h2 {
         font-size: 1.8rem;
         line-height: 1.4;
+    }
+
+    /* FEATURES GRID - Um embaixo do outro também */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     /* IMAGENS PROMOCIONAIS - GARANTIR VISUALIZAÇÃO */
@@ -743,15 +777,6 @@ footer {
         font-size: 1rem;
     }
 
-    /* CARDS DE SERVIÇO */
-    .service-card {
-        padding: 30px 20px;
-    }
-
-    .service-card h3 {
-        font-size: 1.3rem;
-    }
-
     /* WHATSAPP FLOAT - Ajustar posição no mobile */
     .whatsapp-float {
         width: 55px;
@@ -771,6 +796,14 @@ footer {
     .section-title {
         font-size: 1.3rem;
         padding: 8px 20px;
+        display: block;
+        width: 100%;
+        text-align: center !important;
+        margin: 0 auto 20px auto !important;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 
     .promo-item {
