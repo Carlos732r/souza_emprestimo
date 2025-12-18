@@ -27,7 +27,34 @@
         header {
             background-color: #000000 !important;
         }
-        /* ...existing code... */
+        /* Centralizar títulos das seções e ajustar hero-content no mobile */
+        @media (max-width: 767px) {
+          .section-title,
+          .features-header,
+          .features-header h2 {
+            text-align: center !important;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
+          .hero-content {
+            flex-direction: column !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+          .hero-text {
+            width: 100% !important;
+            text-align: center !important;
+            margin-bottom: 24px;
+          }
+          .hero-image {
+            width: 100% !important;
+            text-align: center !important;
+          }
+        }
     </style>
 </head>
 <body>
