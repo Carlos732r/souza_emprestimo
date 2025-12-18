@@ -42,7 +42,7 @@ ul { list-style: none; }
 
 /* --- HEADER --- */
 header {
-    background-color: #BEBEBE;
+    background-color: #000 !important;
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -59,8 +59,8 @@ header .container {
 
 .logo img {
     max-height: 80px;
-    background: white;
-    padding: 5px;
+    background: transparent !important;
+    padding: 0 !important;
     border-radius: 8px;
 }
 
