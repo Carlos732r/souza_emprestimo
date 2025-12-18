@@ -113,7 +113,8 @@ nav ul li a:hover { color: var(--secondary-color); }
 
 /* --- HERO SECTION --- */
 .hero {
-    background-color: var(--dark-bg);
+    background: url('imagens/fgts.png') no-repeat center center;
+    background-size: cover;
     padding: 80px 0;
     position: relative;
     overflow: hidden;
