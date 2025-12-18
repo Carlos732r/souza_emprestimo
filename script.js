@@ -5,16 +5,84 @@ telInput.addEventListener('input', function (e) {
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
 });
 
+// ===== MÁSCARA E VALIDAÇÃO PARA CPF =====
+const cpfInput = document.getElementById('cpf');
+cpfInput.addEventListener('input', function (e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 11) v = v.slice(0, 11);
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    e.target.value = v;
+});
+
+function validarCPF(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+    if (cpf.length !== 11 || /^([0-9])\1+$/.test(cpf)) return false;
+    let soma = 0, resto;
+    for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+    resto = (soma * 10) % 11;
+    if ((resto === 10) || (resto === 11)) resto = 0;
+    if (resto !== parseInt(cpf.substring(9, 10))) return false;
+    soma = 0;
+    for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+    resto = (soma * 10) % 11;
+    if ((resto === 10) || (resto === 11)) resto = 0;
+    if (resto !== parseInt(cpf.substring(10, 11))) return false;
+    return true;
+}
+
+cpfInput.addEventListener('blur', function() {
+    // Apenas validação silenciosa, sem alertas ou borda vermelha
+    // Se quiser exibir mensagem, pode adicionar um elemento de texto abaixo do campo
+    // Aqui não faz nada visualmente
+});
+
+// ===== MÁSCARA E VALIDAÇÃO PARA DATA DE NASCIMENTO =====
+const nascInput = document.getElementById('nascimento');
+nascInput.addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 8) v = v.slice(0, 8);
+    if (v.length > 4) v = v.replace(/(\d{2})(\d{2})(\d{1,4})/, '$1/$2/$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{1,2})/, '$1/$2');
+    e.target.value = v;
+});
+
+function validarDataNascimento(data) {
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) return false;
+    const [dia, mes, ano] = data.split('/').map(Number);
+    const dataObj = new Date(ano, mes - 1, dia);
+    if (dataObj.getFullYear() !== ano || dataObj.getMonth() !== mes - 1 || dataObj.getDate() !== dia) return false;
+    // Verifica se tem pelo menos 18 anos
+    const hoje = new Date();
+    let idade = hoje.getFullYear() - ano;
+    if (
+        hoje.getMonth() < mes - 1 ||
+        (hoje.getMonth() === mes - 1 && hoje.getDate() < dia)
+    ) {
+        idade--;
+    }
+    return idade >= 18;
+}
+
+nascInput.addEventListener('blur', function() {
+    // Apenas validação silenciosa, sem alertas ou borda vermelha
+    // Se quiser exibir mensagem, pode adicionar um elemento de texto abaixo do campo
+    // Aqui não faz nada visualmente
+});
+
 // ===== ENVIO DO FORMULÁRIO PARA WHATSAPP =====
 document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const nome = document.getElementById('nome').value;
+    const cpf = document.getElementById('cpf').value;
+    const nascimento = document.getElementById('nascimento').value;
     const telefone = document.getElementById('telefone').value;
     const servico = document.getElementById('servico').value;
-    
-    const texto = `Olá, vim pelo site!%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Interesse:* ${servico}%0A Gostaria de fazer uma simulação.`;
-    
+
+    const texto = `Olá, vim pelo site!%0A*Nome:* ${nome}%0A*CPF:* ${cpf}%0A*Data de Nascimento:* ${nascimento}%0A*Telefone:* ${telefone}%0A*Interesse:* ${servico}%0A Gostaria de fazer uma simulação.`;
+
     window.open(`https://wa.me/5519981642292?text=${texto}`, '_blank');
 });
 
